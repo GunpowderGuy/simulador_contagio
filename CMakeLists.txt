@@ -13,7 +13,6 @@ pkg_check_modules(SDL2 REQUIRED sdl2)
 
 # add the executable
 add_executable(contagio
-${SDL2_LIBRARY}
 src/main.cpp
 )
 
