@@ -2,17 +2,19 @@ cmake_minimum_required(VERSION 3.20)
 set (CMAKE_CXX_STANDARD 20)
 
 # set the project name
-project(contagio)
+project(poo2)
 
 include_directories(${PROJECT_SOURCE_DIR}/lib/centurion)
 
-#https://bbs.archlinux.org/viewtopic.php?id=252171
-#find_package(PkgConfig REQUIRED)
-#pkg_check_modules(SDL2 REQUIRED sdl2)
-
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
-find_package(SDL2 REQUIRED)
+#https://bbs.archlinux.org/viewtopic.php?id=252171
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(SDL2 REQUIRED sdl2)
+
+# command fails on manjaro, check if it runs on windows
+find_package(SDL2 REQUIRED) 
+
 find_package(SDL2_image REQUIRED)
 find_package(SDL2_mixer REQUIRED)
 find_package(SDL2_ttf REQUIRED)
@@ -24,8 +26,8 @@ src/main.cpp
 
 target_link_libraries(poo2 ${SDL2_LIBRARIES})
 target_link_libraries(poo2 ${SDL2_IMAGE_LIBRARIES})
-target_link_libraries(poo2  ${SDL2_MIXER_LIBRARIES})
-target_link_libraries(poo2  ${SDL2_MIXER_LIBRARIES})
-#target_include_directories(poo2 PUBLIC ${SDL2_INCLUDE_DIRS})
+target_link_libraries(poo2 ${SDL2_MIXER_LIBRARIES})
+target_link_libraries(poo2 ${SDL2_TTF_LIBRARIES})
 
-target_compile_options(poo2 PUBLIC ${SDL2_CFLAGS_OTHER})
+target_include_directories(poo2 PUBLIC ${SDL2_INCLUDE_DIRS})
+#target_compile_options(poo2 PUBLIC ${SDL2_CFLAGS_OTHER})
