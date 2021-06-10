@@ -9,10 +9,9 @@ include_directories(${PROJECT_SOURCE_DIR}/lib/centurion)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 #https://bbs.archlinux.org/viewtopic.php?id=252171
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(SDL2 REQUIRED sdl2)
+#find_package(PkgConfig REQUIRED)
+#pkg_check_modules(SDL2 REQUIRED sdl2)
 
-# command fails on manjaro, check if it runs on windows
 find_package(SDL2 REQUIRED) 
 
 find_package(SDL2_image REQUIRED)
