@@ -7,6 +7,7 @@ project(poo2)
 include_directories(${PROJECT_SOURCE_DIR}/lib/centurion)
 
 #set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/sdl2)
 
 #https://bbs.archlinux.org/viewtopic.php?id=252171
 #find_package(PkgConfig REQUIRED)
