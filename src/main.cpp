@@ -26,39 +26,38 @@ public:
   }
 
   void draw() {
-    get<1>(motor).clear_with(
-        cen::colors::light_coral); // Clear rendering target
+    renderizador().clear_with(cen::colors::light_coral);
 
-    // Draw a filled circle
+    renderizador().set_color(cen::colors::red);
+    renderizador().fill_circle(cen::point(150.0, 150.0), 75);
 
-    get<1>(motor).set_color(cen::colors::red);
-    get<1>(motor).fill_circle(cen::point(150.0, 150.0), 75);
-
-    get<1>(motor).present();
+    renderizador().present();
   }
 
   void run() {
-    get<0>(motor).show();
+    ventana().show();
 
     while (m_running) {
-      draw();
       m_dispatcher.poll();
+      draw();
     }
 
-    get<0>(motor).hide();
+    ventana().hide();
   }
 
 private:
   std::pair<cen::window, cen::renderer> motor = cen::make_window_and_renderer();
-  event_dispatcher m_dispatcher;
-  bool m_running{true};
+  cen::window &ventana() { return get<0>(motor); }
+  cen::renderer &renderizador() { return get<1>(motor); }
 
+  event_dispatcher m_dispatcher;
+
+  bool m_running{true};
   void quit(const cen::quit_event &event) { m_running = false; }
 };
 
 int main(int, char **) {
   cen::library centurion;
-
   // SDL2, SDL2_image, SDL2_mixer and SDL2_ttf are now initialized!
 
   game juego;
