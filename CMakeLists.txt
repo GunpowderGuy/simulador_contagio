@@ -22,6 +22,7 @@ find_package(SDL2_ttf REQUIRED)
 # add the executable
 add_executable(poo2
 src/main.cpp
+src/estado.hpp
 )
 
 target_link_libraries(poo2 ${SDL2_LIBRARIES})
