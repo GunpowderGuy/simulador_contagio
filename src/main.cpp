@@ -10,7 +10,7 @@ using event_dispatcher =
 inline void mouse_button(const cen::mouse_button_event &event) {
   cen::log::info("mouse_button_event");
 }
-
+//Comentario
 inline void window(const cen::window_event &event) {
   cen::log::info("window_event");
 }
