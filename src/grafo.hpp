@@ -54,14 +54,13 @@ public:
 
   int afluencia(const Propiedad &key) {
     int result;
-    auto conx = conexiones(key);
-    for (conx.first; conx.first != conx.second; conx.first++) {
-      int value = 0;
-      value =
-          (conx.first)->second.first.residentes * ((conx.first)->second.second);
+    const auto conx = conexiones(key);
+
+    for (auto iterador = conx.first; iterador != conx.second; iterador++) {
+      const int value =
+          iterador->second.first.residentes * (iterador->second.second);
       result += value;
     }
-
     return result;
   }
 };
