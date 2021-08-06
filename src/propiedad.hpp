@@ -1,14 +1,19 @@
-#include<string>
+#include <string>
 #include <variant>
+
+struct Vivienda {
+  int residentes = 0;
+};
+
+struct Comercial {
+  int apertura;
+  int cierre;
+};
 
 struct Propiedad {
   std::string Nombre;
-  enum class Tipo { vivienda, comercial, trabajo };
-
-  int residentes = 0;
-
-  int Apertura;
-  int Cierre;
+  // enum class Tipo { vivienda, comercial, trabajo };
+  variant<Vivienda, Comercial> tipo;
 
   // https://www.geeksforgeeks.org/how-to-create-an-unordered_map-of-user-defined-class-in-cpp/
   bool operator==(const Propiedad &p) const { return this->Nombre == p.Nombre; }
