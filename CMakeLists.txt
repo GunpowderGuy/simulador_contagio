@@ -23,6 +23,8 @@ find_package(SDL2_ttf REQUIRED)
 add_executable(poo2
 src/main.cpp
 src/estado.hpp
+src/grafo.hpp
+src/propiedad.hpp
 )
 
 target_link_libraries(poo2 ${SDL2_LIBRARIES})
