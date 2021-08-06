@@ -1,6 +1,7 @@
 #include <centurion.hpp>
 
 #include "estado.hpp"
+#include "grafo.hpp"
 
 using event_dispatcher =
     cen::event_dispatcher<cen::quit_event, cen::window_event,
