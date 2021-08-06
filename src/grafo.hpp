@@ -37,7 +37,13 @@ public:
 
     for (auto iterador = conx.first; iterador != conx.second; iterador++) {
       const int value =
-          iterador->second.first.residentes * (iterador->second.second);
+          std::visit(overloaded{
+                         [](auto arg) { return 0; },
+                         [](Vivienda arg) { return arg.residentes; },
+                     },
+                     iterador->second.first.tipo) *
+          (iterador->second.second);
+
       result += value;
     }
     return result;
