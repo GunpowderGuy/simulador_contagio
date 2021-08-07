@@ -6,6 +6,11 @@ Simulador de contagio de una ciudad con diferentes áreas (centro comercial, viv
 
 # RESUMEN DEL PROGRAMA
 
+- singleton
+- abstract factory
+- adapter 
+- composite
+
 # DIAGRAMA UML
 
 # BIBLIOGRAFÍA
