@@ -12,3 +12,5 @@ _deps
 
 /build
 .vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
