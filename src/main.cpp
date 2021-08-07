@@ -5,12 +5,14 @@
 
 using event_dispatcher =
     cen::event_dispatcher<cen::quit_event, cen::window_event,
-                          cen::keyboard_event, cen::mouse_button_event>;
+                          cen::keyboard_event, cen::mouse_button_event>;    
+// observer -> recibe un evento mensaje el cual devuelve un comportamiento asignado
+
 
 inline void mouse_button(const cen::mouse_button_event &event) {
   cen::log::info("mouse_button_event");
 }
-// Comentario con fecha 2223
+
 inline void window(const cen::window_event &event) {
   cen::log::info("window_event");
 }
@@ -26,21 +28,23 @@ public:
     m_dispatcher.bind<cen::window_event>().to<&window>();
     m_dispatcher.bind<cen::mouse_button_event>().to<&mouse_button>();
     m_dispatcher.bind<cen::keyboard_event>().to<&keyboard>();
+    // bind -> asigna una función para cada evento 
   }
 
   void run() {
     ventana().show();
 
     while (m_running) {
-      m_dispatcher.poll();
-      estado.draw(renderizador());
-      estado.update();
+      m_dispatcher.poll();          // recibe eventos y los pasa al dispatcher (*)
+      estado.draw(renderizador());  // recibe un renderer y ejecuta comandos de dibujado
+      estado.update();              // actualiza el estado del programa
     }
 
     ventana().hide();
   }
 
 private:
+  // ATRIBUTOS DE CLASE  
   std::pair<cen::window, cen::renderer> motor = cen::make_window_and_renderer();
   cen::window &ventana() { return get<0>(motor); }
   cen::renderer &renderizador() { return get<1>(motor); }
@@ -50,6 +54,8 @@ private:
   Estado estado;
 
   bool m_running{true};
+
+  // METODOS DE CLASE
   void quit(const cen::quit_event &event) { m_running = false; }
 };
 
