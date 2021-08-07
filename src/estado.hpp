@@ -12,15 +12,14 @@ struct Estado {
 
     for (const Propiedad pelota : vertex) {
       const auto color =
-          visit(overloaded{
+          visit(overloaded{  // pattern matching: https://en.wikipedia.org/wiki/Pattern_matching 
                     [](const auto arg) { return cen::colors::green; },
                     [](const Vivienda arg) { return cen::colors::blanched_almond; },
                 },
-                pelota.tipo);
+                pelota.tipo); // retorna un color de acuerdo al tipo de cada vertice   
 
-      ren.set_color(color);
-      ren.fill_circle(cen::point(pelota.x, pelota.y), 75);
-      // cout << pelota.x;
+      ren.set_color(color);   // actualiza color del renderer
+      ren.fill_circle(cen::point(pelota.x, pelota.y), 75);    // (coord, radius)
     }
 
     ren.present();
@@ -44,7 +43,7 @@ struct Estado {
 private:
   Grafo grafo = initGrafo();
 
-  //  double pos_x = 0;
+  // double pos_x = 0;
   // double pos_y = 100;
   // double direccion_x = 5;
   // double direccion_y = 5;

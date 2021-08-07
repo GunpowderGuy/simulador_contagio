@@ -17,10 +17,12 @@ class Grafo { // grafo dirigido
   unordered_multimap<Propiedad, Arista> aristas;
 
 public:
+  // encapsulamiento -> puede ser leido pero no alterado
   const unordered_set<Propiedad> &get_vertices() const { return vertices; }
 
+
   bool annadir_vertice(const Propiedad &prop) {
-    // retorna falso si la insercion falla
+    // retorna falso si la insercion falla -> no permite 2 elementos con el mismo hash
     return this->vertices.insert(prop).second;
   }
 
@@ -41,12 +43,12 @@ public:
     const auto conx = conexiones(key);
 
     for (auto iterador = conx.first; iterador != conx.second; iterador++) {
-      const int value = visit(overloaded{
+      const int value = visit(overloaded{                   
                                   [](auto arg) { return 0; },
                                   [](Vivienda arg) { return arg.residentes; },
                               },
                               iterador->second.first.tipo) *
-                        (iterador->second.second);
+                        (iterador->second.second);        // residentes * ponderacion de arista
 
       result += value;
     }
