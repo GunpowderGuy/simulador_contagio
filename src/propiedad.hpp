@@ -12,16 +12,18 @@ struct Comercial {
   int cierre;
 };
 
+using Tipo = std::variant<Vivienda, Comercial>;
+
 struct Propiedad {
   float x;
   float y;
   std::string nombre;
-  std::variant<Vivienda, Comercial> tipo;
+  Tipo tipo;
 
   bool operator==(const Propiedad &p) const { return this->nombre == p.nombre; }
 
-  Propiedad(std::string mi_nombre, float x1, float y1)
-      : nombre(mi_nombre), x(x1), y(y1) {}
+  Propiedad(std::string mi_nombre, float x1, float y1, Tipo pipo = Vivienda())
+      : nombre(mi_nombre), x(x1), y(y1), tipo(pipo) {}
   Propiedad() = default;
 };
 

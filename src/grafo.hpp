@@ -59,7 +59,7 @@ Grafo initGrafo() {
 
   grafo.annadir_vertice(Propiedad("DFDF", 400, 400));
   grafo.annadir_vertice(Propiedad("dfdfd", 9000, 9000));
-  grafo.annadir_vertice(Propiedad());
+  grafo.annadir_vertice(Propiedad("nanan",100,100,Comercial()));
 
   return grafo;
 }

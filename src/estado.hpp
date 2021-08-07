@@ -11,7 +11,14 @@ struct Estado {
     const auto &vertex = grafo.get_vertices();
 
     for (const Propiedad pelota : vertex) {
-      ren.set_color(cen::colors::red);
+      const auto color =
+          visit(overloaded{
+                    [](const auto arg) { return cen::colors::green; },
+                    [](const Vivienda arg) { return cen::colors::blanched_almond; },
+                },
+                pelota.tipo);
+
+      ren.set_color(color);
       ren.fill_circle(cen::point(pelota.x, pelota.y), 75);
       // cout << pelota.x;
     }
