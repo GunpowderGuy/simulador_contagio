@@ -1,7 +1,10 @@
+#pragma once
+
 #include <functional>
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
+#include <type_traits>
 
 #include "propiedad.hpp"
 
@@ -14,6 +17,8 @@ class Grafo { // grafo dirigido
   unordered_multimap<Propiedad, Arista> aristas;
 
 public:
+   const unordered_set<Propiedad>& get_vertices() const { return vertices; }
+
   bool annadir_vertice(const Propiedad &prop) {
     // retorna falso si la insercion falla
     return this->vertices.insert(prop).second;
@@ -36,13 +41,12 @@ public:
     const auto conx = conexiones(key);
 
     for (auto iterador = conx.first; iterador != conx.second; iterador++) {
-      const int value =
-          std::visit(overloaded{
-                         [](auto arg) { return 0; },
-                         [](Vivienda arg) { return arg.residentes; },
-                     },
-                     iterador->second.first.tipo) *
-          (iterador->second.second);
+      const int value = visit(overloaded{
+                                  [](auto arg) { return 0; },
+                                  [](Vivienda arg) { return arg.residentes; },
+                              },
+                              iterador->second.first.tipo) *
+                        (iterador->second.second);
 
       result += value;
     }

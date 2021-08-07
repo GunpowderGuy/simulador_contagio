@@ -1,5 +1,7 @@
 #include <centurion.hpp>
 
+#include "grafo.hpp"
+
 struct Estado {
   void draw(cen::renderer &ren) {
     ren.clear_with(cen::colors::light_coral);
@@ -21,9 +23,15 @@ struct Estado {
     if (pos_y < -1 || pos_y > 600) {
       direccion_y = direccion_y * -1;
     };
+
+    auto vertex = grafo.get_vertices();
+
+    vertex.insert(Propiedad());
   }
 
 private:
+  Grafo grafo;
+
   double pos_x = 0;
   double pos_y = 100;
   double direccion_x = 5;

@@ -13,6 +13,9 @@ struct Comercial {
 };
 
 struct Propiedad {
+  int x;
+  int y;
+
   std::string Nombre;
   // enum class Tipo { vivienda, comercial, trabajo };
   std::variant<Vivienda, Comercial> tipo;
