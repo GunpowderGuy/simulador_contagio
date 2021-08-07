@@ -15,21 +15,19 @@ struct Comercial {
 struct Propiedad {
   float x;
   float y;
-
-  std::string Nombre;
-  // enum class Tipo { vivienda, comercial, trabajo };
+  std::string nombre;
   std::variant<Vivienda, Comercial> tipo;
 
-  // https://www.geeksforgeeks.org/how-to-create-an-unordered_map-of-user-defined-class-in-cpp/
-  bool operator==(const Propiedad &p) const { return this->Nombre == p.Nombre; }
+  bool operator==(const Propiedad &p) const { return this->nombre == p.nombre; }
+
+    Propiedad( float x1, float y1) : x(x1), y(y1) {}
+  Propiedad() = default;
 };
 
 namespace std {
-
 template <> struct hash<Propiedad> {
   size_t operator()(const Propiedad &x) const {
-    return hash<string>{}(x.Nombre);
+    return hash<string>{}(x.nombre);
   }
 };
-// https://stackoverflow.com/questions/8157937/how-to-specialize-stdhashkeyoperator-for-user-defined-type-in-unordered
 } // namespace std
