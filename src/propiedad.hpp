@@ -13,8 +13,8 @@ struct Comercial {
 };
 
 struct Propiedad {
-  int x;
-  int y;
+  float x;
+  float y;
 
   std::string Nombre;
   // enum class Tipo { vivienda, comercial, trabajo };
