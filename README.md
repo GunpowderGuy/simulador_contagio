@@ -16,6 +16,7 @@ Simulador de contagio de una ciudad con diferentes áreas (centro comercial, viv
 <p>
 <img scr = "https://drive.google.com/file/d/1rFtTAwLncg08Rpq2kPf1CyP2np857lA0/view?usp=sharing">
 </p>
-            
+         
+         
 # BIBLIOGRAFÍA
 
