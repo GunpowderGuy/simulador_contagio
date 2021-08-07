@@ -2,9 +2,9 @@
 
 #include <functional>
 #include <string>
+#include <type_traits>
 #include <unordered_map>
 #include <unordered_set>
-#include <type_traits>
 
 #include "propiedad.hpp"
 
@@ -17,7 +17,7 @@ class Grafo { // grafo dirigido
   unordered_multimap<Propiedad, Arista> aristas;
 
 public:
-   const unordered_set<Propiedad>& get_vertices() const { return vertices; }
+  const unordered_set<Propiedad> &get_vertices() const { return vertices; }
 
   bool annadir_vertice(const Propiedad &prop) {
     // retorna falso si la insercion falla
@@ -53,3 +53,13 @@ public:
     return result;
   }
 };
+
+Grafo initGrafo() {
+  Grafo grafo;
+
+  grafo.annadir_vertice(Propiedad());
+  grafo.annadir_vertice(Propiedad());
+  grafo.annadir_vertice(Propiedad());
+
+  return grafo;
+}

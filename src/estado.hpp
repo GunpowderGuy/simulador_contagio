@@ -2,6 +2,8 @@
 
 #include "grafo.hpp"
 
+#include<iostream>
+
 struct Estado {
   void draw(cen::renderer &ren) {
     ren.clear_with(cen::colors::light_coral);
@@ -24,13 +26,16 @@ struct Estado {
       direccion_y = direccion_y * -1;
     };
 
-    auto vertex = grafo.get_vertices();
+     //auto vertex = grafo.get_vertices();
+    const auto &vertex = grafo.get_vertices();
 
-    vertex.insert(Propiedad());
+     //vertex.insert(Propiedad());
+
+     std::cout << vertex.size();
   }
 
 private:
-  Grafo grafo;
+  Grafo grafo = initGrafo();
 
   double pos_x = 0;
   double pos_y = 100;
