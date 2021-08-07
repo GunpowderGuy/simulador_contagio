@@ -20,7 +20,8 @@ struct Propiedad {
 
   bool operator==(const Propiedad &p) const { return this->nombre == p.nombre; }
 
-    Propiedad( float x1, float y1) : x(x1), y(y1) {}
+  Propiedad(std::string mi_nombre, float x1, float y1)
+      : nombre(mi_nombre), x(x1), y(y1) {}
   Propiedad() = default;
 };
 
