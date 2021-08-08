@@ -1,6 +1,10 @@
 # SIMULADOR CONTAGIO
 
-Simulador de contagio por zonas de afluencia soportado por grafos, metaprogramación y con visualización gráfica
+Simulador de contagio por zonas de afluencia soportado por grafos, metaprogramación y con visualización gráfica.
+
+<p>
+         <img src = "https://www.redaccionmedica.com/images/destacados/coronavirus-el-poder-de-la-distancia-social-a-traves-de-2-simulaciones-2903.jpg">
+</p>
 
 # REQUISITOS
 - Instalar [SDL2](https://www.libsdl.org/) en alguna de las versiones y adicionales siguientes.
