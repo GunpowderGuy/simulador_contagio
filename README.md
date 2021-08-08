@@ -28,13 +28,6 @@ Simulador de contagio por zonas de afluencia soportado por grafos, metaprogramac
 - Aplicar conocimientos de metaprogramación, programación genérica, STL, patrones de diseño y relaciones entre clases.
 - Hacer uso de una libreriá gráfica para la visualización de resultados
 
-# RESUMEN DEL PROGRAMA
-
-- singleton
-- abstract factory
-- adapter 
-- composite
-
 # DIAGRAMA UML
 
 <p align="center">
