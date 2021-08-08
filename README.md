@@ -1,9 +1,13 @@
-# SIMULADOR CONTAGIO
+# SIMULADOR DE CONTAGIO
 
-Simulador de contagio de una ciudad con diferentes áreas (centro comercial, vivienda,etc)
+Simulador de contagio por zonas de afluencia soportado por grafos, metaprogramación y con visualización gráfica.
+
+<p align="center">
+         <img src = "https://www.redaccionmedica.com/images/destacados/coronavirus-el-poder-de-la-distancia-social-a-traves-de-2-simulaciones-2903.jpg">
+</p>
 
 # REQUISITOS
-- Instalar [SDL2](https://www.libsdl.org/) en alguna de las versiones mencionadas a continuación:
+- Instalar [SDL2](https://www.libsdl.org/) en alguna de las versiones y adicionales siguientes.
 
 | Dependencia  | Versiones soportadas |
 |---|---|
@@ -20,20 +24,19 @@ Simulador de contagio de una ciudad con diferentes áreas (centro comercial, viv
 
 # OBJETIVOS
 
-# RESUMEN DEL PROGRAMA
-
-- singleton
-- abstract factory
-- adapter 
-- composite
+- Simular interacción de contagio basado en la afluencia de agentes en las coordenadas de un GUI_Window.
+- Aplicar conocimientos de metaprogramación, programación genérica, STL, patrones de diseño y relaciones entre clases.
+- Hacer uso de una libreriá gráfica para la visualización de resultados
 
 # DIAGRAMA UML
 
-
 <p align="center">
-         <img src = "img/UML.jpg">
+         <img src = "img/UML.png">
 </p>
-         
          
 # BIBLIOGRAFÍA
 
+- [Centurion](https://github.com/albin-johansson/centurion)
+- [SDL2](https://www.libsdl.org/)
+- [SDL2-image](https://www.libsdl.org/projects/SDL_image/)
+- [Manjaro Linux](https://manjaro.org/)
