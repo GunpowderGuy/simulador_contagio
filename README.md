@@ -39,3 +39,7 @@ Simulador de contagio por zonas de afluencia soportado por grafos, metaprogramac
          
 # BIBLIOGRAFÍA
 
+- [Centurion](https://github.com/albin-johansson/centurion)
+- [SDL2](https://www.libsdl.org/)
+- [SDL2-image](https://www.libsdl.org/projects/SDL_image/)
+- [Manjaro Linux](https://manjaro.org/)
