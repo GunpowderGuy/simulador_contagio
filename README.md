@@ -1,9 +1,9 @@
 # SIMULADOR CONTAGIO
 
-Simulador de contagio de una ciudad con diferentes áreas (centro comercial, vivienda,etc)
+Simulador de contagio por zonas de afluencia soportado por grafos, metaprogramación y con visualización gráfica
 
 # REQUISITOS
-- Instalar [SDL2](https://www.libsdl.org/) en alguna de las versiones mencionadas a continuación:
+- Instalar [SDL2](https://www.libsdl.org/) en alguna de las versiones y adicionales siguientes.
 
 | Dependencia  | Versiones soportadas |
 |---|---|
