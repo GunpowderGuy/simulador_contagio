@@ -38,7 +38,7 @@ Simulador de contagio por zonas de afluencia soportado por grafos, metaprogramac
 # DIAGRAMA UML
 
 <p align="center">
-         <img src = "img/UML.jpg">
+         <img src = "img/UML.png">
 </p>
          
 # BIBLIOGRAFÍA
