@@ -8,6 +8,8 @@
 
 #include "propiedad.hpp"
 
+#include <iostream>
+
 using namespace std;
 
 using Arista = pair<Propiedad, int>;
@@ -15,6 +17,9 @@ using Arista = pair<Propiedad, int>;
 class Grafo { // grafo dirigido
   unordered_set<Propiedad> vertices;
   unordered_multimap<Propiedad, Arista> aristas;
+
+// Vivienda -> Comercial
+// Vivienda <- Comercial(key)
 
 public:
   // encapsulamiento -> puede ser leido pero no alterado
@@ -29,8 +34,8 @@ public:
     return this->vertices.insert(prop).second;
   }
 
-  void annadir_arista(const Propiedad &key, const Arista &conexion) {
-    this->aristas.insert(make_pair(key, conexion));
+  void annadir_arista(const Propiedad &negocio, const Arista &vivienda) {
+    this->aristas.insert(make_pair(negocio, vivienda));
   }
 
   // dormitorio : (utec,9) ; (tambo,8) ; (mercado,7),*
@@ -58,16 +63,45 @@ public:
     }
     return result;
   }
+
+  // parametro debe ser una propiedad comercial
+  void back_propagate(const Propiedad &key) {
+    const unsigned int clientes = this->afluencia(key);
+    //cout << "clientes" << clientes << "clientes";
+    const auto conx = this->conexiones(key);
+
+    bool infeccion = clientes > get<Comercial>(key.tipo).aforo;
+
+    for (auto iterador = conx.first; iterador != conx.second; iterador++) {
+      auto arista = iterador->second;
+      auto peso = arista.second;
+      auto propiedad1 = arista.first;
+
+      get<Vivienda>(propiedad1.tipo).infectados =
+          get<Vivienda>(propiedad1.tipo).residentes * peso;
+    }
+  }
 };
 
 Grafo initGrafo() {
   Grafo grafo;
 
-  grafo.annadir_vertice(Propiedad("DFDF", 100, 100));
+  const auto prop1 = Propiedad("DFDF", 100, 100);
+  const auto prop2 = Propiedad("nanadn", 390, 250, Comercial());
+
+  grafo.annadir_vertice(prop1);
   grafo.annadir_vertice(Propiedad("dfdfd", 700, 100));
   grafo.annadir_vertice(Propiedad("nanan", 390, 510));
 
-  grafo.annadir_vertice(Propiedad("nanadn", 390, 250, Comercial()));
+  grafo.annadir_vertice(prop2);
+
+  grafo.annadir_arista(prop2, make_pair(prop1, 50));
+
+  grafo.back_propagate(prop2);
+
+  //std::cout << get<Vivienda>(prop1.tipo).infectados;
+  
+
 
   return grafo;
 }

@@ -5,19 +5,19 @@
 template <class... Ts> struct overloaded : Ts... { using Ts::operator()...; };
 
 struct Vivienda {
-  int residentes = 0;
+  int residentes = 50;
+  int infectados = 15;
 };
 
 struct Comercial {
   int apertura;
   int cierre;
 
-  int aforo;
+  int aforo = 50;
 };
 
-using Tipo =
-    std::variant<Vivienda,
-                 Comercial>; // https://en.wikipedia.org/wiki/Tagged_union
+using Tipo = std::variant<Vivienda, Comercial>;
+// https://en.wikipedia.org/wiki/Tagged_union
 
 struct Propiedad {
   float x;

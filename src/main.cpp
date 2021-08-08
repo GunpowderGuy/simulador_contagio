@@ -36,9 +36,9 @@ public:
 
     while (m_running) {
       m_dispatcher.poll(); // recibe eventos y los pasa al dispatcher (*)
-      estado.draw(
-          renderizador()); // recibe un renderer y ejecuta comandos de dibujado
-      estado.update();     // actualiza el estado del programa
+      estado.draw(renderizador());
+      // recibe un renderer y ejecuta comandos de dibujado
+      estado.update(); // actualiza el estado del programa
     }
 
     ventana().hide();
