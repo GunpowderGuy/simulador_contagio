@@ -1,4 +1,4 @@
-# SIMULADOR CONTAGIO
+# SIMULADOR DE CONTAGIO
 
 Simulador de contagio por zonas de afluencia soportado por grafos, metaprogramación y con visualización gráfica.
 
@@ -23,6 +23,10 @@ Simulador de contagio por zonas de afluencia soportado por grafos, metaprogramac
 </p>
 
 # OBJETIVOS
+
+- Simular interacción de contagio basado en la afluencia de agentes en las coordenadas de un GUI_Window.
+- Aplicar conocimientos de metaprogramación, programación genérica, STL, patrones de diseño y relaciones entre clases.
+- Hacer uso de una libreriá gráfica para la visualización de resultados
 
 # RESUMEN DEL PROGRAMA
 
