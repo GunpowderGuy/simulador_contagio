@@ -2,6 +2,14 @@
 
 Simulador de contagio de una ciudad con diferentes áreas (centro comercial, vivienda,etc)
 
+# REQUISITOS
+- Instalar [SDL](https://www.libsdl.org/)
+- Adjuntar al proyecto el módulo [centurion.hpp](https://github.com/albin-johansson/centurion)
+
+<p align="center">
+         <img src = "https://repository-images.githubusercontent.com/176574203/f80b9d00-9249-11ea-9abc-62d09ecfcd2c">
+</p>
+
 # OBJETIVOS
 
 # RESUMEN DEL PROGRAMA
