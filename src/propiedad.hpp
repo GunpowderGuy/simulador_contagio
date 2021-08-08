@@ -1,5 +1,5 @@
 #include <string>
-#include <variant>  // TIPO que puede contener 2 TIPOS
+#include <variant> // TIPO que puede contener 2 TIPOS
 
 // Metaprogramacion y Programacion generica
 template <class... Ts> struct overloaded : Ts... { using Ts::operator()...; };
@@ -11,9 +11,13 @@ struct Vivienda {
 struct Comercial {
   int apertura;
   int cierre;
+
+  int aforo;
 };
 
-using Tipo = std::variant<Vivienda, Comercial>;   // https://en.wikipedia.org/wiki/Tagged_union
+using Tipo =
+    std::variant<Vivienda,
+                 Comercial>; // https://en.wikipedia.org/wiki/Tagged_union
 
 struct Propiedad {
   float x;
@@ -28,7 +32,7 @@ struct Propiedad {
   Propiedad() = default;
 };
 
-// Sobrecarga 
+// Sobrecarga
 namespace std {
 template <> struct hash<Propiedad> {
   size_t operator()(const Propiedad &x) const {

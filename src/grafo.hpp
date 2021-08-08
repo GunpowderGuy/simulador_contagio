@@ -19,10 +19,13 @@ class Grafo { // grafo dirigido
 public:
   // encapsulamiento -> puede ser leido pero no alterado
   const unordered_set<Propiedad> &get_vertices() const { return vertices; }
-
+  const unordered_multimap<Propiedad, Arista> &get_aristas() const {
+    return aristas;
+  }
 
   bool annadir_vertice(const Propiedad &prop) {
-    // retorna falso si la insercion falla -> no permite 2 elementos con el mismo hash
+    // retorna falso si la insercion falla -> no permite 2 elementos con el
+    // mismo hash
     return this->vertices.insert(prop).second;
   }
 
@@ -43,12 +46,13 @@ public:
     const auto conx = conexiones(key);
 
     for (auto iterador = conx.first; iterador != conx.second; iterador++) {
-      const int value = visit(overloaded{                   
-                                  [](auto arg) { return 0; },
-                                  [](Vivienda arg) { return arg.residentes; },
-                              },
-                              iterador->second.first.tipo) *
-                        (iterador->second.second);        // residentes * ponderacion de arista
+      const int value =
+          visit(overloaded{
+                    [](auto arg) { return 0; },
+                    [](Vivienda arg) { return arg.residentes; },
+                },
+                iterador->second.first.tipo) *
+          (iterador->second.second); // residentes * ponderacion de arista
 
       result += value;
     }
@@ -59,9 +63,11 @@ public:
 Grafo initGrafo() {
   Grafo grafo;
 
-  grafo.annadir_vertice(Propiedad("DFDF", 400, 400));
-  grafo.annadir_vertice(Propiedad("dfdfd", 900, 400));
-  grafo.annadir_vertice(Propiedad("nanan",100,100,Comercial()));
+  grafo.annadir_vertice(Propiedad("DFDF", 100, 100));
+  grafo.annadir_vertice(Propiedad("dfdfd", 700, 100));
+  grafo.annadir_vertice(Propiedad("nanan", 390, 510));
+
+  grafo.annadir_vertice(Propiedad("nanadn", 390, 250, Comercial()));
 
   return grafo;
 }
