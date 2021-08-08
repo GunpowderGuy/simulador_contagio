@@ -2,7 +2,7 @@
 
 Simulador de contagio por zonas de afluencia soportado por grafos, metaprogramación y con visualización gráfica.
 
-<p>
+<p align="center">
          <img src = "https://www.redaccionmedica.com/images/destacados/coronavirus-el-poder-de-la-distancia-social-a-traves-de-2-simulaciones-2903.jpg">
 </p>
 
