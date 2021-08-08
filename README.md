@@ -14,7 +14,7 @@ Simulador de contagio de una ciudad con diferentes áreas (centro comercial, viv
 # DIAGRAMA UML
 
 <p align="center">
-         <img scr = "img/UML.jpg">
+         <img src = "img/UML.jpg">
 </p>
          
          
